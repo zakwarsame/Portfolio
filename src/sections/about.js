@@ -304,7 +304,7 @@ const About = () => {
         <StyledContainer id="about-me">
         <Heading
               title="About me"
-              subtitle="If you’re <span>wondering</span> who <span>I am</span>…"
+              subtitle="Let me <span>introduce</span> myself…"
             />
           <Wrapper>
             <StyledFlexContainer>
