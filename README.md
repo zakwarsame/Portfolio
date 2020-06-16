@@ -1,6 +1,5 @@
-<div align="center">
-  ![Logo](zak.png)
-</div>
+![Logo](zak.png)
+
 <h1 align="center">
   zakwarsame.netlify.co
 </h1>
@@ -9,7 +8,7 @@
 </p>
 <p align="center">
   Previous iterations:
-  <a href="https://github.com/zakwarsame/first-portfolio" target="_blank">v3</a>
+  <a href="https://github.com/zakwarsame/first-portfolio" target="_blank">v1</a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/zakwarsame/deploys" target="_blank">
