@@ -3,7 +3,7 @@ module.exports = {
     title: `Zakaria | Web Developer`,
     description: `I’m Zakaria, a self-taught Front-end developer.`,
     author: `Zakaria`,
-    siteUrl: 'https://zakwarsame.github.io',
+    siteUrl: 'https://zakwarsame.netlify.com',
     social: {
       twitter: 'zak_py',
       instagram: 'alchemy.py',
