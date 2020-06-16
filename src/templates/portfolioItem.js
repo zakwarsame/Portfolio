@@ -6,7 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Img from 'gatsby-image';
 
 import ButtonLink from '../components/UI/buttonLink';
-import { theme, media, Section } from "../utils/styles/index";
+import { theme} from "../utils/styles/index";
 
 
 

@@ -26,16 +26,9 @@ const CopyRight = styled.p`
   font-weight: 700;
   margin-bottom:0;
   margin-right: 1rem;
-  
-  
   font-size: 1rem;
   color: var(--text-highlight);
   text-transform: uppercase;
-`;
-
-const ContactWrapper = styled.div`
-  margin: auto;
-
 `;
 
 
@@ -45,14 +38,14 @@ const Contact = () => {
     query {
       darkLogo: file(relativePath: { eq: "logo/zak.png" }) {
         childImageSharp {
-          fluid(maxWidth: 3080, quality: 100) {
+          fluid(maxWidth: 3080, quality: 90) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
       lightLogo: file(relativePath: { eq: "logo/zaklight.png" }) {
         childImageSharp {
-          fluid(maxWidth: 3080, quality: 100) {
+          fluid(maxWidth: 3080, quality: 90) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }

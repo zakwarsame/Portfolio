@@ -3,7 +3,7 @@ import rehypeReact from "rehype-react";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { graphql, useStaticQuery } from "gatsby";
 
 
@@ -224,11 +224,6 @@ const StyledLink = styled.a`
   }
 `;
 
-const ButtonLink = ({ children, solid, ...rest }) => (
-  <StyledLink solid={solid} {...rest}>
-    {children}
-  </StyledLink>
-);
 
 const ButtonsWrapper = styled.div`
   display: flex;

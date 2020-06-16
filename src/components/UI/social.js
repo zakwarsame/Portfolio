@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faGithub,
-  faFacebookF,
+  
   faLinkedinIn,
   faInstagram,
-  faYoutube,
+  
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
