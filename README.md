@@ -17,7 +17,7 @@
   </a>
 </p>
 
-![demo](thumbnail.png)
+![demo](portfolio.png)
 
 ## 🚨 Portfolio
 
