@@ -1,5 +1,6 @@
-![Logo](zak.png)
-
+<div align="center">
+  <img src="zak.png" alt="logo" width="50px" height="50px">
+</div>
 <h1 align="center">
   zakwarsame.netlify.co
 </h1>
