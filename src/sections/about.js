@@ -310,9 +310,7 @@ const About = () => {
             <StyledFlexContainer>
               <AboutText>
                 {renderCustom(aboutMe.childMarkdownRemark.htmlAst)}
-                <StackTitle>
-                  Here are a few technologies I've been working with recently:
-                </StackTitle>
+                
                 <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
               </AboutText>
               <StyledPic>
