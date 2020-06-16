@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="zak.png" alt="logo" width="50px" height="50px">
+  <img src="zak.png" alt="logo" width="450rem" height="250rem">
 </div>
 <h1 align="center">
   zakwarsame.netlify.co
