@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: 'https://zakwarsame.netlify.com',
     social: {
       twitter: 'zak_py',
-      instagram: 'alchemy.py',
+      instagram: 'zakwarsame',
       linkedin: 'zakariawarsame',
       youtube: '',
       facebook: '',
