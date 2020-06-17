@@ -1,7 +1,7 @@
 ---
 stack: 'HTML5 - CSS3 - JAVASCRIPT - SASS - WEBPACK - REACTJS - REDUX - STYLED COMPONENTS - CSS MODULES - BABEL - GRAPHQL - GATSBY'
 curriculum: 'curriculum.pdf'
-creativeCurriculum: 'my_resume.pdf'
+creativeCurriculum: 'resume.pdf'
 avatar: './zak.jpg'
 ---
 
