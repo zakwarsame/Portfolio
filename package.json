@@ -1,9 +1,9 @@
 {
-  "name": "fidalgo-portfolio-gatsby",
+  "name": "zak-portfolio-gatsby",
   "private": true,
-  "description": "Fidalgo Font-end developer portfolio",
+  "description": "Zak Font-end developer portfolio",
   "version": "1.0.0",
-  "author": "Fidalgo",
+  "author": "Zak",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-brands-svg-icons": "^5.8.2",
