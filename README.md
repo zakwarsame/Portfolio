@@ -24,9 +24,12 @@
 Check out my website where I showcase my skills and who I am. I got inspired by developers online for this. Gatsby is amazing when it comes to SEO and is also a static site generator, so naturally it seemed like a great fit for this project. The site reads data from markdown files, which makes it easy for me to add content. It also has a cool dark mode switch.
 
 
-### Technologies Used
+### Tech Stack
 
-REACT - GATSBY - JSX -ES6
+- REACT
+- GATSBY 
+- JSX
+- ES6
 
 ## 🛠 Installation & Set Up
 
@@ -36,7 +39,7 @@ REACT - GATSBY - JSX -ES6
    npm install -g gatsby-cli
    ```
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
+2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm) - v10.16.1
 
    ```sh
    nvm install

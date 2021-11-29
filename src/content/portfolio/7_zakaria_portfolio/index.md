@@ -1,5 +1,5 @@
 ---
-title: 'Zakaria Portfolio'
+title: 'Portfolio'
 live: 'https://zakwarsame.netlify.com'
 source: 'https://github.com/zakwarsame/Portfolio'
 stack: 'React - Styled Components - Gatsby'
