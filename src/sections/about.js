@@ -331,9 +331,7 @@ const About = () => {
                 solid
                 target="_blank"
                 rel="noreferrer"
-                href={`${siteUrl.siteMetadata.siteUrl}/${
-                  aboutMe.childMarkdownRemark.frontmatter.creativeCurriculum
-                }`}
+                href="https://resume.creddle.io/resume/5vzx6kozb0h"
               >
                 <StyledIcon icon={faPaperPlane} />
                 Resume
