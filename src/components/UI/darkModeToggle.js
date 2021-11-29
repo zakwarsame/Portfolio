@@ -185,11 +185,6 @@ const Span = styled.span`
 
 const darkModeToggle = ({ mobile }) => {
   const darkMode = useDarkMode(true);
-
-  // enable darkmode on first load
-  useEffect(() => {
-    darkMode.enable();
-  }, []);
   //Animation
   const darkModeToggleSpring = useSpring({
     delay: 200,
