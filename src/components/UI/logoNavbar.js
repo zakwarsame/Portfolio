@@ -75,7 +75,7 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
     return LogoNavBarTransition.map(({ item, key, props }) =>
       item ? (
         <animated.div key={key} style={props}>
-          <GatsbyImage alt="Logo Light" title="Logo Light" image={lightImage} />
+          <GatsbyImage key={key} alt="Logo Light" title="Logo Light" image={lightImage} />
         </animated.div>
       ) : (
         <animated.div key={key} style={props}>
