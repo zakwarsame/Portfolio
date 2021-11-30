@@ -184,7 +184,7 @@ const Span = styled.span`
 `;
 
 const DarkModeToggle = ({ mobile }) => {
-  const darkMode = useDarkMode(true);
+  const darkMode = useDarkMode(false);
   //Animation
   const darkModeToggleSpring = useSpring({
     delay: 200,
