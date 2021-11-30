@@ -19,40 +19,40 @@ const PortfolioWrapper = styled.div`
 `;
 
 const Portfolio = () => {
-  const { allFile: items } = useStaticQuery(graphql`
-    query {
-      allFile(
-        filter: {
-          sourceInstanceName: { eq: "content" }
-          extension: { eq: "md" }
-          relativeDirectory: { regex: "/portfolio/" }
-        }
-        sort: { fields: [dir], order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            childMarkdownRemark {
-              frontmatter {
-                title
-                live
-                source
-                stack
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 800, quality: 80) {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
-                  }
-                }
+  const { allFile: items } = useStaticQuery(graphql`{
+  allFile(
+    filter: {sourceInstanceName: {eq: "content"}, extension: {eq: "md"}, relativeDirectory: {regex: "/portfolio/"}}
+    sort: {fields: [dir], order: DESC}
+  ) {
+    edges {
+      node {
+        id
+        childMarkdownRemark {
+          frontmatter {
+            title
+            live
+            source
+            stack
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 800
+                  quality: 80
+                  placeholder: TRACED_SVG
+                  layout: CONSTRAINED
+                )
               }
-              html
             }
           }
+          html
         }
       }
     }
-  `);
+  }
+}
+`);
+
+
 
   return (
     <StyledSection id="portfolio">

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import ButtonLink from '../components/UI/buttonLink';
 import { theme} from "../utils/styles/index";
@@ -139,7 +139,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
   margin-right: 0.5rem;
 `;
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   margin: 0 0rem;
   flex: 1 1 50%;
   ${theme.boxShadow};
@@ -207,6 +207,8 @@ const StyledAvatarLink = styled.a`
 
 const PortfolioItem = ({ portfolio }) => {
   const { title, live, source, stack, image } = portfolio.frontmatter;
+  const portfolioImage = getImage(image)
+  
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -226,7 +228,7 @@ const PortfolioItem = ({ portfolio }) => {
           </ButtonsWrapper>
         </Content>
        <StyledAvatarLink target="_blank" href={live}>
-        <Image fluid={image.childImageSharp.fluid} />
+        <Image image={portfolioImage} alt="Portfolio Image" />
         </StyledAvatarLink>
       </ContentWrapper>
     </Wrapper>

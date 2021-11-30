@@ -3,29 +3,29 @@ module.exports = {
     title: `Zakaria | Web Developer`,
     description: `I’m Zakaria, a self-taught Front-end developer.`,
     author: `Zakaria`,
-    siteUrl: 'https://zakwarsame.netlify.com',
+    siteUrl: "https://zakwarsame.netlify.com",
     social: {
-      twitter: 'zak_py',
-      instagram: 'zakwarsame',
-      linkedin: 'zakariawarsame',
-      youtube: '',
-      facebook: '',
-      github: 'zakwarsame',
-      email: 'zakaria.warsamee@gmail.com'
+      twitter: "zak_py",
+      instagram: "zakwarsame",
+      linkedin: "zakariawarsame",
+      youtube: "",
+      facebook: "",
+      github: "zakwarsame",
+      email: "zakaria.warsamee@gmail.com",
     },
     // name of the image for social website share, should be in static folder
-    imageShare: `share.jpg`
+    imageShare: `share.jpg`,
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-141189217-1D',
+        trackingId: "UA-141189217-1D",
         // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false
-      }
+        head: false,
+      },
     },
-    
+
     `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -33,37 +33,40 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     {
       // https://www.gatsbyjs.org/packages/gatsby-remark-images
-      resolve: 'gatsby-remark-images',
+      resolve: "gatsby-remark-images",
       options: {
         maxWidth: 700,
         linkImagesToOriginal: true,
         quality: 90,
-        tracedSVG: '#64ffda',
+        tracedSVG: {
+          color: "#64ffda"
+        },
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `content`,
-        path: `${__dirname}/src/content`
-      }
+        path: `${__dirname}/src/content`,
+      },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts-v2`,
       options: {
         fonts: [
           {
             family: `Montserrat`,
-            variants: [`200`, `400`, `400i`, `600`, `600i`, `700`]
-          }
-        ]
-      }
+            weights: [`200`, `400`, `400i`, `600`, `600i`, `700`],
+          },
+        ],
+      },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -71,14 +74,14 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-external-links',
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: '_blank',
-              rel: 'noreferrer'
-            }
-          }
-        ]
-      }
+              target: "_blank",
+              rel: "noreferrer",
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -89,9 +92,9 @@ module.exports = {
         start_url: `/`,
         background_color: `#212121`,
         theme_color: `#127EB1`,
-        display: `minimal-ui`
-      }
+        display: `minimal-ui`,
+      },
     },
-    `gatsby-plugin-offline`
-  ]
+    `gatsby-plugin-offline`,
+  ],
 };

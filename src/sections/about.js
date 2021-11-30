@@ -1,11 +1,11 @@
 import React from "react";
 import rehypeReact from "rehype-react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { graphql, useStaticQuery } from "gatsby";
-
 
 import ScrollLink from "../components/utils/scrollLink";
 import Heading from "../components/UI/heading";
@@ -36,14 +36,14 @@ const StyledPic = styled.div`
   margin-left: 60px;
   ${media.tablet`margin: 60px auto 0;`};
   ${media.phablet`width: 70%;`};
-  
+
   a {
     &:focus {
       outline: 0;
     }
   }
 `;
-const StyledAvatar = styled(Img)`
+const StyledAvatar = styled(GatsbyImage)`
   position: relative;
   mix-blend-mode: multiply;
   filter: grayscale(100%) contrast(1);
@@ -139,25 +139,8 @@ const AboutText = styled.div`
     width: 100%;
   }
 `;
-const StackTitle = styled.h2`
-  
-  font-weight: 600;
-  color: var(--text-highlight);
-  margin-top: 2rem;
-  font-size: 2rem;
-  transition: color 0.2s ease-out;
-
-  @media ${(props) => props.theme.mediaQueries.small} {
-    font-size: 1.9rem;
-  }
-
-  @media ${(props) => props.theme.mediaQueries.smallest} {
-    font-size: 1.8rem;
-  }
-`;
 
 const Stack = styled.p`
-  
   color: var(--primary);
   width: 75%;
   margin: 0 20rem auto auto;
@@ -184,9 +167,9 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
 const StyledLink = styled.a`
   outline: none;
-  
-  background: ${({ solid }) => (solid ? 'var(--primary)' : 'transparent')};
-  color: ${({ solid }) => (solid ? 'var(--main)' : 'var(--text-highlight)')};
+
+  background: ${({ solid }) => (solid ? "var(--primary)" : "transparent")};
+  color: ${({ solid }) => (solid ? "var(--main)" : "var(--text-highlight)")};
   text-transform: uppercase;
   text-decoration: none;
   font-family: inherit;
@@ -194,21 +177,22 @@ const StyledLink = styled.a`
   align-items: center;
   font-weight: 700;
   letter-spacing: 1.5px;
-  border: ${({ solid }) => (solid ? '1px transparent' : '1px solid')};
+  border: ${({ solid }) => (solid ? "1px transparent" : "1px solid")};
   border-radius: 10rem;
   font-size: 1rem;
   padding: 1.2rem 20rem;
   margin: 0rem;
   cursor: pointer;
   box-shadow: ${({ solid }) =>
-    solid ? '0px 8px 15px var(--shadow-color)' : 'none'};
+    solid ? "0px 8px 15px var(--shadow-color)" : "none"};
   transition: all 0.3s ease-out;
   border: 2px solid var(--primary-light);
 
   &:hover {
-    background-color: ${({ solid }) => (solid ? 'var(--main)' : 'transparent')};
-    color: ${({ solid }) => (solid ? 'var(--primary)' : 'var(--text-highlight)')};
-    
+    background-color: ${({ solid }) => (solid ? "var(--main)" : "transparent")};
+    color: ${({ solid }) =>
+      solid ? "var(--primary)" : "var(--text-highlight)"};
+
     /* background-color: var(--primary); */
     border-color: var(--primary);
   }
@@ -216,19 +200,16 @@ const StyledLink = styled.a`
   &:active {
     transform: translateY(1px);
     box-shadow: ${({ solid }) =>
-      solid ? '0 3px 10px var(--shadow-btn)' : 'none'};
+      solid ? "0 3px 10px var(--shadow-btn)" : "none"};
   }
 
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${(props) => props.theme.mediaQueries.small} {
     padding: 1.1rem 10rem;
   }
 `;
 
-
 const ButtonsWrapper = styled.div`
   display: flex;
-  
-  
 
   & a:first-of-type {
     margin-right: 3rem;
@@ -250,12 +231,12 @@ const ButtonsWrapper = styled.div`
 // Takes custom components from markdown, and maps to my custom components
 const renderCustom = new rehypeReact({
   createElement: React.createElement,
-  components: { "scroll-link": ScrollLink},
+  components: { "scroll-link": ScrollLink },
 }).Compiler;
 
 const About = () => {
-  const { aboutMe, siteUrl,site } = useStaticQuery(graphql`
-    query {
+  const { aboutMe, siteUrl, site } = useStaticQuery(graphql`
+    {
       site {
         siteMetadata {
           social {
@@ -277,13 +258,13 @@ const About = () => {
             creativeCurriculum
             avatar {
               childImageSharp {
-                fluid(
-                  maxWidth: 700
+                gatsbyImageData(
+                  width: 700
                   quality: 90
-                  traceSVG: { color: "#64ffda" }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                  tracedSVGOptions: { color: "#64ffda" }
+                  placeholder: TRACED_SVG
+                  layout: CONSTRAINED
+                )
               }
             }
           }
@@ -297,31 +278,29 @@ const About = () => {
       }
     }
   `);
+  const image = getImage(aboutMe.childMarkdownRemark.frontmatter.avatar);
 
   return (
     <StyledSection>
       <Contained>
         <StyledContainer id="about-me">
-        <Heading
-              title="About me"
-              subtitle="Let me <span>introduce</span> myself…"
-            />
+          <Heading
+            title="About me"
+            subtitle="Let me <span>introduce</span> myself…"
+          />
           <Wrapper>
             <StyledFlexContainer>
               <AboutText>
                 {renderCustom(aboutMe.childMarkdownRemark.htmlAst)}
-                
+
                 <Stack>{aboutMe.childMarkdownRemark.frontmatter.stack}</Stack>
               </AboutText>
               <StyledPic>
-                <StyledAvatarLink target="_blank" href={`https://github.com/${site.siteMetadata.social.github}`}>
-                  <StyledAvatar
-                    fluid={
-                      aboutMe.childMarkdownRemark.frontmatter.avatar
-                        .childImageSharp.fluid
-                    }
-                    alt="Avatar"
-                  />
+                <StyledAvatarLink
+                  target="_blank"
+                  href={`https://github.com/${site.siteMetadata.social.github}`}
+                >
+                  <StyledAvatar image={image} alt="Avatar" />
                 </StyledAvatarLink>
               </StyledPic>
             </StyledFlexContainer>
@@ -336,7 +315,6 @@ const About = () => {
                 <StyledIcon icon={faPaperPlane} />
                 Resume
               </StyledLink>
-              
             </ButtonsWrapper>
           </Wrapper>
         </StyledContainer>

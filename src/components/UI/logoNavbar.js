@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
-import { Link } from 'react-scroll';
-import { Link as GatsbyLink } from 'gatsby';
-import Img from 'gatsby-image';
-import useDarkMode from 'use-dark-mode';
-import { useTransition, animated } from 'react-spring';
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+import { Link } from "react-scroll";
+import { Link as GatsbyLink } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import useDarkMode from "use-dark-mode";
+import { useTransition, animated } from "react-spring";
 
-import ScrollToTop from '../UI/scrollToTop';
+import ScrollToTop from "../UI/scrollToTop";
 
 const StyledLink = styled(Link)`
   cursor: pointer;
@@ -36,48 +36,53 @@ const LogoNavBar = ({ notOnePageSection, setMenuOpened }) => {
   // Animation
   const LogoNavBarTransition = useTransition(darkMode, null, {
     config: { duration: 200 },
-    from: { position: 'absolute', opacity: 0 },
+    from: { position: "absolute", opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   });
 
   // Query for logos
   const { darkLogo, lightLogo } = useStaticQuery(graphql`
-    query {
+    {
       darkLogo: file(relativePath: { eq: "logo/zak.png" }) {
         childImageSharp {
-          fixed(height: 80, quality: 90) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
+          gatsbyImageData(
+            height: 80
+            quality: 90
+            placeholder: TRACED_SVG
+            layout: FIXED
+          )
         }
       }
       lightLogo: file(relativePath: { eq: "logo/zaklight.png" }) {
         childImageSharp {
-          fixed(height: 80, quality: 90) {
-            ...GatsbyImageSharpFixed_tracedSVG
-          }
+          gatsbyImageData(
+            height: 80
+            quality: 90
+            placeholder: TRACED_SVG
+            layout: FIXED
+          )
         }
       }
     }
   `);
+
+  const lightImage = getImage(lightLogo);
+  const darkImage = getImage(darkLogo);
 
   // Render dark or light logo
   const renderLogo = () => {
     return LogoNavBarTransition.map(({ item, key, props }) =>
       item ? (
         <animated.div key={key} style={props}>
-          <Img
-            alt="Logo Light"
-            title="Logo Light"
-            fixed={lightLogo.childImageSharp.fixed}
-          />
+          <GatsbyImage alt="Logo Light" title="Logo Light" image={lightImage} />
         </animated.div>
       ) : (
         <animated.div key={key} style={props}>
-          <Img
+          <GatsbyImage
+            image={darkImage}
             alt="Logo Dark"
             title="Logo Dark"
-            fixed={darkLogo.childImageSharp.fixed}
           />
         </animated.div>
       )

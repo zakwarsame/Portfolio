@@ -183,7 +183,7 @@ const Span = styled.span`
   }
 `;
 
-const darkModeToggle = ({ mobile }) => {
+const DarkModeToggle = ({ mobile }) => {
   const darkMode = useDarkMode(true);
   //Animation
   const darkModeToggleSpring = useSpring({
@@ -216,4 +216,4 @@ const darkModeToggle = ({ mobile }) => {
   );
 };
 
-export default darkModeToggle;
+export default DarkModeToggle;
