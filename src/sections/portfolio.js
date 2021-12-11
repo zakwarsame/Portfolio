@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 
-import Heading from '../components/UI/heading';
+import Heading from "../components/UI/heading";
 import {
   Contained,
   StyledSection,
   Wrapper,
-} from '../components/layout/elements';
-import PortfolioItem from '../templates/portfolioItem';
+} from "../components/layout/elements";
+import PortfolioItem from "../templates/portfolioItem";
 
 const PortfolioWrapper = styled.div`
   width: 100%;
@@ -19,40 +19,43 @@ const PortfolioWrapper = styled.div`
 `;
 
 const Portfolio = () => {
-  const { allFile: items } = useStaticQuery(graphql`{
-  allFile(
-    filter: {sourceInstanceName: {eq: "content"}, extension: {eq: "md"}, relativeDirectory: {regex: "/portfolio/"}}
-    sort: {fields: [dir], order: DESC}
-  ) {
-    edges {
-      node {
-        id
-        childMarkdownRemark {
-          frontmatter {
-            title
-            live
-            source
-            stack
-            image {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 800
-                  quality: 80
-                  placeholder: TRACED_SVG
-                  layout: CONSTRAINED
-                )
+  const { allFile: items } = useStaticQuery(graphql`
+    {
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "content" }
+          extension: { eq: "md" }
+          relativeDirectory: { regex: "/portfolio/" }
+        }
+        sort: { fields: [dir], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            childMarkdownRemark {
+              frontmatter {
+                title
+                live
+                source
+                stack
+                image {
+                  childImageSharp {
+                    gatsbyImageData(
+                      width: 800
+                      quality: 80
+                      placeholder: TRACED_SVG
+                      layout: CONSTRAINED
+                    )
+                  }
+                }
               }
+              html
             }
           }
-          html
         }
       }
     }
-  }
-}
-`);
-
-
+  `);
 
   return (
     <StyledSection id="portfolio">
@@ -63,7 +66,7 @@ const Portfolio = () => {
             subtitle={`Check <span>what</span> I've been doing <span>lately</span>`}
           />
           <PortfolioWrapper>
-            {items.edges.map(item => (
+            {items.edges.map((item) => (
               <PortfolioItem
                 key={item.node.id}
                 portfolio={item.node.childMarkdownRemark}
