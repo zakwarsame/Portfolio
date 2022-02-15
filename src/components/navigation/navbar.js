@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { animated, useSpring, config } from 'react-spring';
@@ -49,20 +49,20 @@ const Navbar = ({ notOnePageSection }) => {
     },
   });
 
-  // // Change navbar content accordingly
-  // const changeMobile = () => {
-  //   window.matchMedia('(max-width: 37.5em)').matches
-  //     ? setisMobile(true)
-  //     : setisMobile(false);
-  // };
+  // Change navbar content accordingly
+  const changeMobile = () => {
+    window.matchMedia('(max-width: 37.5em)').matches
+      ? setisMobile(true)
+      : setisMobile(false);
+  };
 
-  // // Event listener on resize, so when it change we check o remove desktop menu/mobile menu
-  // // Better than CSS media query because we dont keep both DOM nodes
-  // useEffect(() => {
-  //   changeMobile();
-  //   window.addEventListener('resize', changeMobile);
-  //   return () => window.removeEventListener('resize', changeMobile);
-  // }, []);
+  // Event listener on resize, so when it change we check o remove desktop menu/mobile menu
+  // Better than CSS media query because we dont keep both DOM nodes
+  useEffect(() => {
+    changeMobile();
+    window.addEventListener('resize', changeMobile);
+    return () => window.removeEventListener('resize', changeMobile);
+  }, []);
 
   return (
     <StyledHeader style={NavBarSpring}>
