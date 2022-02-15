@@ -184,7 +184,20 @@ const Span = styled.span`
 `;
 
 const DarkModeToggle = ({ mobile }) => {
-  const darkMode = useDarkMode(false);
+
+  const darkMode = useDarkMode(false, {
+    storageKey: null,
+  });
+  
+  useEffect(() => {
+    const darkThemeMq = typeof window !== 'undefined' && window.matchMedia("(prefers-color-scheme: dark)");
+    if (!darkThemeMq.matches) {
+      darkMode.enable();
+    } else {
+      darkMode.disable();
+    }
+  },[darkMode]);
+
   //Animation
   const darkModeToggleSpring = useSpring({
     delay: 200,

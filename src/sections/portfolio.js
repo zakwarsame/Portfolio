@@ -63,7 +63,7 @@ const Portfolio = () => {
         <Wrapper>
           <Heading
             title="Portfolio"
-            subtitle={`Check <span>what</span> I've been doing <span>lately</span>`}
+            subtitle={`Check out <span>what</span> I've been working on <span>lately</span>`}
           />
           <PortfolioWrapper>
             {items.edges.map((item) => (
