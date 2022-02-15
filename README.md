@@ -39,7 +39,7 @@ Check out my website where I showcase my skills and who I am. I got inspired by 
    npm install -g gatsby-cli
    ```
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm) - v10.16.1
+2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm) - v14.19.0
 
    ```sh
    nvm install
